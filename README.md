@@ -23,7 +23,6 @@ A rotacao **nao muda no carregamento da pagina**, apenas no clique.
 - Preserva parametro `text` da URL original.
 - Painel admin para adicionar, editar e remover vendedores.
 - Persistencia via WordPress Options API.
-- Sem dependencia de ACF.
 
 ## Estrutura
 
@@ -77,9 +76,4 @@ whatsapp-vendor-rotator/
 
 ## Autor
 
-- RetinaWeb
-
-## Licenca
-
-Uso privado/comercial conforme necessidade do projeto.  
-Se quiser publicar como open source, recomendo adicionar uma licenca MIT.
+- Matheus Lopes
