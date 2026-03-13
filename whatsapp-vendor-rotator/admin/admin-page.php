@@ -7,6 +7,22 @@ $vendedores = get_option('whatsapp_rotator_vendedores', array());
 if (!is_array($vendedores)) {
     $vendedores = array();
 }
+
+$floating_defaults = function_exists('whatsapp_rotator_default_floating_settings')
+    ? whatsapp_rotator_default_floating_settings()
+    : array(
+        'enabled' => 1,
+        'desktop_right' => '10px',
+        'desktop_bottom' => '45%',
+        'mobile_right' => '10px',
+        'mobile_bottom' => '10px',
+        'message_text' => 'Ola! Quero atendimento.',
+    );
+$floating_settings = get_option('whatsapp_rotator_floating_settings', array());
+if (!is_array($floating_settings)) {
+    $floating_settings = array();
+}
+$floating_settings = wp_parse_args($floating_settings, $floating_defaults);
 ?>
 <div class="wrap">
     <h1>WhatsApp Rotator</h1>
@@ -67,6 +83,88 @@ if (!is_array($vendedores)) {
         <p style="margin-top: 12px;">
             <button type="button" class="button" id="whatsapp-rotator-add">Adicionar vendedor</button>
         </p>
+
+        <hr style="margin: 24px 0;">
+
+        <h2>Icone flutuante do WhatsApp</h2>
+        <p>Esse botao usa a mesma roleta de vendedores dos links do site.</p>
+
+        <table class="form-table" role="presentation" style="max-width: 900px;">
+            <tbody>
+                <tr>
+                    <th scope="row">Ativar icone flutuante</th>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="floating_enabled" value="1" <?php checked((int) $floating_settings['enabled'], 1); ?> />
+                            Exibir botao flutuante no frontend
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Desktop - Right</th>
+                    <td>
+                        <input
+                            type="text"
+                            name="floating_desktop_right"
+                            class="regular-text"
+                            value="<?php echo esc_attr($floating_settings['desktop_right']); ?>"
+                            placeholder="10px"
+                        />
+                        <p class="description">Exemplo: 10px, 2rem, 5vw</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Desktop - Bottom</th>
+                    <td>
+                        <input
+                            type="text"
+                            name="floating_desktop_bottom"
+                            class="regular-text"
+                            value="<?php echo esc_attr($floating_settings['desktop_bottom']); ?>"
+                            placeholder="45%"
+                        />
+                        <p class="description">Exemplo: 45%, 80px</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Mobile - Right</th>
+                    <td>
+                        <input
+                            type="text"
+                            name="floating_mobile_right"
+                            class="regular-text"
+                            value="<?php echo esc_attr($floating_settings['mobile_right']); ?>"
+                            placeholder="10px"
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Mobile - Bottom</th>
+                    <td>
+                        <input
+                            type="text"
+                            name="floating_mobile_bottom"
+                            class="regular-text"
+                            value="<?php echo esc_attr($floating_settings['mobile_bottom']); ?>"
+                            placeholder="10px"
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Mensagem padrao</th>
+                    <td>
+                        <input
+                            type="text"
+                            name="floating_message_text"
+                            class="regular-text"
+                            value="<?php echo esc_attr($floating_settings['message_text']); ?>"
+                            placeholder="Ola! Quero atendimento."
+                        />
+                        <p class="description">Essa mensagem vai no parametro text do link do botao.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
         <p class="submit">
             <button type="submit" class="button button-primary">Salvar vendedores</button>
