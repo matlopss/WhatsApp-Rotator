@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # WhatsApp Vendor Rotator
 
 Plugin WordPress para rotacao automatica de vendedores de WhatsApp usando Round Robin global por clique.
@@ -78,8 +77,3 @@ whatsapp-vendor-rotator/
 ## Autor
 
 - Matheus Lopes
-
-## Licenca
-
-Uso privado/comercial conforme necessidade do projeto.  
-Se quiser publicar como open source, recomendo adicionar uma licenca MIT.
