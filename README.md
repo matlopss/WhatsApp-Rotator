@@ -73,7 +73,3 @@ whatsapp-vendor-rotator/
 ## Versao Atual
 
 - `1.3.0`
-
-## Autor
-
-- Matheus Lopes
